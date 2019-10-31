@@ -3,7 +3,7 @@
 This repository contains examples of use for the two available [CockroachDB CDC](https://www.cockroachlabs.com/docs/stable/change-data-capture.html) options available:
 
 - [EXPERIMENTAL CHANGEFEED FOR](https://www.cockroachlabs.com/docs/stable/changefeed-for.html) (free version) in `ecf/` folder.
-- [CREATE CHANGEFEED FOR](https://www.cockroachlabs.com/docs/stable/create-changefeed.html) (enterprise version) in `ccf/` folder.
+- [CREATE CHANGEFEED](https://www.cockroachlabs.com/docs/stable/create-changefeed.html) (enterprise version) in `cc/` folder.
 
 ## EXPERIMENTAL CHANGEFEED FOR
 
