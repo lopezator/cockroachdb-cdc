@@ -1,5 +1,7 @@
 # EXPERIMENTAL CHANGEFEED FOR
 
+## Usage instructions
+
 1. Run `movies.sql` on local CockroachDB server if necessary.
 
 2. Run the collector:
