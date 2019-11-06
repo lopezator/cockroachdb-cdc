@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 
@@ -23,18 +24,22 @@ func main() {
 		_ = rows.Close()
 	}()
 	type changeFeed struct {
-		table string
-		key   string
-		value []byte
+		Table string `json:"table"`
+		Key   string `json:"key"`
+		Value []byte `json:"value"`
 	}
 	// This blocks forever and triggers when a new result comes
 	for rows.Next() {
 		changeFeed := &changeFeed{}
-		err := rows.Scan(&changeFeed.table, &changeFeed.key, &changeFeed.value)
+		err := rows.Scan(&changeFeed.Table, &changeFeed.Key, &changeFeed.Value)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println(string(changeFeed.value))
+		jsonChangeFeed, err := json.Marshal(changeFeed)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(string(jsonChangeFeed))
 	}
 	err = rows.Err()
 	if err != nil {
