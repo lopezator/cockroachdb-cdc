@@ -40,6 +40,9 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Println(string(jsonChangeFeed))
+		fmt.Println("")
+		fmt.Println("value decoded:\n", string(changeFeed.Value))
+		fmt.Println("")
 	}
 	err = rows.Err()
 	if err != nil {
